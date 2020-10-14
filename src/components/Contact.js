@@ -2,17 +2,22 @@ import React from 'react';
 
 const isOnline = true;
 
-function Contact() {
+function Contact(props) {
     return (
     <figure className="Contact">
       <img className="avatar"
-        src="https://randomuser.me/api/portraits/men/2.jpg"
-        alt="Earl Howell"
+        src={props.avatar}
+        alt={props.name}
       />
-      <div className="name">Earl Howell</div>
-      <div className="status">
-        <div className="status-online"></div>
-        <div className="status-text">{isOnline ? 'online' : 'offline'}</div>
+
+      <div>
+        <div className="name">{props.name}</div> 
+          <div className="status">{props.status}
+            <div className={props.online ? "status-online" : "status-offline" }>
+            <div className="status-text">{props.online ? 'online' : 'offline'}
+            </div>
+          </div>
+        </div>
       </div>
      
     </figure>
@@ -20,4 +25,7 @@ function Contact() {
 }
 
 export default Contact;
+
+
+
 
